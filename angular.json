@@ -1,3 +1,4 @@
+
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
@@ -24,9 +25,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "src/nds/css/jquery-ui.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/nds/js/jquery-3.3.1.min.js",
+              "src/nds/js/jquery-ui.min.js",
+              "src/nds/js/perfect-scrollbar.js",
+              "src/nds/js/popper.min.js"
+            ]
           },
           "configurations": {
             "production": {

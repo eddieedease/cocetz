@@ -5,6 +5,15 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'cocetz';
+
+
+
+  clickNav (){
+    console.log("ok")
+      $('body').toggleClass('ms-settings-open');
+  }
+
+
 }
