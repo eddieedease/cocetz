@@ -1749,7 +1749,7 @@ a.ms-confirm-trigger:hover {
   }
 
   .ms-aside-left-open .ms-aside-left.side-nav {
-    transform: translateX(-100%);
+    transform: translateX(0);
   }
 
   .ms-aside-left.ms-aside-open.side-nav {
