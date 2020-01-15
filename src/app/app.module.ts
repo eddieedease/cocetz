@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { SiteComponent } from './site/site.component';
 
+import { NgxPageScrollModule } from 'ngx-page-scroll';
+
 
 const appRoutes: Routes = [
   // { path: 'landing', component: LandingComponent },
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
       appRoutes,
       { useHash: false } // <-- debugging purposes only true
     ),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPageScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
