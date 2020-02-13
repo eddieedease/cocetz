@@ -1016,7 +1016,7 @@ pre {
 /* Navbar */
 .navbar {
   border-radius: 0;
-  background: #009efb;
+  background: #05263d;
   border-bottom: 1px solid rgba(0, 0, 0, .1);
   padding: 0 30px;
 }
@@ -1233,7 +1233,7 @@ body:not(.ms-aside-left-open) .ms-aside-toggler .ms-toggler-bar {
 /* ,
 .side-nav .menu-item ul */
   {
-  background-color: #009efb;
+  background-color: #05263d;
 }
 
 .side-nav .menu-item ul {

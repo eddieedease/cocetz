@@ -5,10 +5,10 @@
   <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
     <!-- Logo -->
     <div class="logo-sn ms-d-block-lg">
-      <a class="pl-0 ml-0 text-center" href="index.html"> <img src="https://via.placeholder.com/216x62" alt="logo"> </a>
-      <a  class="text-center ms-logo-img-link"> <img src="https://via.placeholder.com/70" alt="logo"></a>
+      <br><br>
+      <a  class="text-center"> <img class="rounded-circle "src="assets/70.png" alt="logo"></a>
       <h5 class="text-center text-white mt-2">COC jaarverslag</h5>
-      <h6 class="text-center text-white mb-3">__</h6>
+      <h6 class="text-center text-white mb-3">2019</h6>
 
     </div><br>
     <div (click)="clickNav()"  class="ms-aside-toggler ms-toggler" style="float: right;align-self: flex-end;">
@@ -16,9 +16,9 @@
       <span class="ms-toggler-bar bg-white"></span>
       <span class="ms-toggler-bar bg-white"></span>
     </div>
-    
+    <br><br>
     <!-- Navigation -->
-    <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
+    <ul class="accordion ms-main-aside fs-14"  id="side-nav-accordion">
       
       <!-- Dashboard -->
       <li class="menu-item">
@@ -26,7 +26,7 @@
           <span>Dashboard </span>
         </a>
         <ul id="dashboard" class="collapse" aria-labelledby="dashboard" data-parent="#side-nav-accordion">
-          <li> <a href="index.html">Mednalytics</a> </li>
+          <li> <a (click)="checkIfMobile()">Mednalytics</a> </li>
         </ul>
       </li>
       <!-- /Dashboard -->
@@ -36,8 +36,8 @@
           <span>Doctor</span>
         </a>
         <ul id="doctor" class="collapse" aria-labelledby="doctor" data-parent="#side-nav-accordion">
-          <li> <a pageScroll href="#testlink">Testlink</a> </li>
-          <li> <a href="pages/doctor/doctor-list.html">Doctor List</a> </li>
+          <li> <a (click)="checkIfMobile()" pageScroll href="#testlink">Testlink</a> </li>
+          <li> <a (click)="checkIfMobile()">Doctor List</a> </li>
         </ul>
       </li>
       
@@ -48,14 +48,14 @@
   <!-- Main Content -->
   <main class="body-content">
     <!-- Navigation Bar -->
-    <nav class="navbar ms-navbar">
+    <nav class="navbar sticky-top ms-navbar">
       <div (click)="clickNav()"  class="ms-aside-toggler ms-toggler pl-0" data-target="#ms-side-nav" data-toggle="slideLeft">
         <span class="ms-toggler-bar bg-white"></span>
         <span class="ms-toggler-bar bg-white"></span>
         <span class="ms-toggler-bar bg-white"></span>
       </div>
-      <div class="logo-sn logo-sm ms-d-block-sm">
-        <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="index.html"><img src="https://via.placeholder.com/84x41" alt="logo"> </a>
+      <div class="ms-d-block-sm">
+        <a class="pl-0 ml-0 text-center navbar-brand mr-0"> <img class="rounded-circle "src="assets/70.png" alt="logo"> </a>
       </div>
     </nav>
     <!-- Body Content Wrapper -->
