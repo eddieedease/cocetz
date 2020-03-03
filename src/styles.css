@@ -1307,7 +1307,7 @@ body:not(.ms-aside-left-open) .ms-aside-toggler .ms-toggler-bar {
   color:#4e4e4e;
 }
 .side-nav .menu-item ul {
-  padding-left: 40px;
+  padding-left: 10px;
   background-color: #f2f2f2;
 }
 
