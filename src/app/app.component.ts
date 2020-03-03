@@ -9,7 +9,7 @@ export class AppComponent  {
   title = 'cocetz';
 
   // Typescript Media querie var
-  mq = window.matchMedia('(min-width: 700px)');
+  mq = window.matchMedia('(min-width: 1000px)');
 
 
   constructor(){
@@ -33,6 +33,8 @@ export class AppComponent  {
     let isMobile = false;
         if(useragent.match(/Android/i)) {
           isMobile = true;
+        } else if(!this.mq.matches) {
+          isMobile = true;
         } else if(useragent.match(/webOS/i)) {
           isMobile = true;
         } else if(useragent.match(/iPhone/i)) {
@@ -40,7 +42,7 @@ export class AppComponent  {
         } else if(useragent.match(/iPod/i)) {
           isMobile = true;
         } else if(useragent.match(/iPad/i)) {
-          isMobile = false;
+          isMobile = true;
         } else if(useragent.match(/Windows Phone/i)) {
           isMobile = true;
         } else if(useragent.match(/SymbianOS/i)) {
