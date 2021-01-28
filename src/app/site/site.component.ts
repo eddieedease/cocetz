@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'contentpage',
@@ -7,19 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SiteComponent implements OnInit {
 
-  activeYear = 2020;
-
-  constructor() { }
-
+  activeYear = 2019;
   
 
+  constructor(private modalService: BsModalService) {}
+
+  @ViewChild('pwdmodal', {static: false}) pwdmodalRef: TemplateRef < any > ;
+
   yearSet(yearSelected: number) {
+   
     this.activeYear = yearSelected;
+
+
   }
+  
 
   ngOnInit() {
 
  
   }
+
+  
+
+
+ 
 
 }

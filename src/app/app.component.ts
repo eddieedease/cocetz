@@ -1,5 +1,7 @@
-import { Component, ViewChild, AfterViewInit  } from '@angular/core';
+import { Component, ViewChild, AfterViewInit,  OnInit, TemplateRef} from '@angular/core';
 import { SiteComponent } from './site/site.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 
 
 @Component({
@@ -19,8 +21,26 @@ export class AppComponent  {
   active2019 = false;
   active2020 = false;
 
+  pwdProtect = true;
+  lastActive = '2019';
+  protected = '2020';
 
-  constructor(){
+  pwdMessage = '';
+
+  
+
+  pwdUnlock = '';
+
+  modalRef: BsModalRef;
+  config = {
+    backdrop: true,
+    ignoreBackdropClick: false
+  };
+
+  @ViewChild('pwdmodal', {static: false}) pwdmodalRef: TemplateRef < any > ;
+
+
+  constructor(private modalService: BsModalService){
     if (this.mq.matches) {
      
     } else {
@@ -34,8 +54,8 @@ export class AppComponent  {
   ngAfterViewInit() {
 
     setTimeout( ()=> {
-      this.activeYear = 2020;
-      this.yearSelected('2020');
+      this.activeYear = 2019;
+      this.yearSelected('2019');
     }, 0);
 
    
@@ -44,19 +64,26 @@ export class AppComponent  {
 
 
   yearSelected(_year){
-    this.siteComponent.yearSet(+_year);
-    this.activeYear = +_year;
-    this.active2019 = false;
-    this.active2020 = false;
-    switch (_year) {
-      case '2019':
-        this.active2019 = true;
-        break;
-        case '2020':
-          this.active2020 = true;
+
+    if (this.pwdProtect === true && this.protected === _year ){
+      this.openModal(this.pwdmodalRef);
+    } else {
+      this.siteComponent.yearSet(+_year);
+      this.activeYear = +_year;
+      this.active2019 = false;
+      this.active2020 = false;
+      switch (_year) {
+        case '2019':
+          this.active2019 = true;
           break;
- 
+          case '2020':
+            this.active2020 = true;
+            break;
+   
+      }
     }
+
+    
   }
 
   clickNav (){
@@ -95,6 +122,47 @@ export class AppComponent  {
       this.clickNav();
     }
 
+  }
+
+
+  openModal(template: TemplateRef<any>) {
+    this.pwdMessage = '';
+    // this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(template, {
+     class: 'gray modal-lg backdropdark',
+     backdrop: true,
+     ignoreBackdropClick: true
+   });
+   }
+ 
+   hideModal() {
+     this.modalRef.hide();
+     this.activeYear = this.lastActive;
+   }
+
+
+   checkUnlock(){
+     console.log(this.pwdUnlock);
+    if (this.pwdUnlock === 'goudvis'){
+      this.pwdMessage = 'correct';
+      this.siteComponent.yearSet(+this.protected);
+      this.activeYear = +this.protected;
+      this.active2019 = false;
+      this.active2020 = false;
+      switch (this.protected) {
+        case '2019':
+          this.active2019 = true;
+          break;
+          case '2020':
+            this.active2020 = true;
+            break;
+   
+      }
+      this.pwdProtect = false;
+      this.modalRef.hide();
+    } else {
+      this.pwdMessage = 'failed';
+    }
   }
 
 
