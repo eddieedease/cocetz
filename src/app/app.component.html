@@ -46,14 +46,7 @@
       <a  class="text-center"> <img class="rounded-circle "src="assets/70.png" alt="logo"></a>
       <h5 class="text-center text-white mt-2">COC jaarverslag</h5>
         
-      <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-          <a class="nav-link" [ngClass]="{'active': active2019}" (click)="yearSelected('2019')" href="javascript:;">2019</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [ngClass]="{'active': active2020}" (click)="yearSelected('2020')" href="javascript:;">2020</a>
-        </li>
-        </ul>
+     
         
         
       
@@ -71,8 +64,15 @@
 2020 2020 2020 2020 2020 2020
 2020 2020 2020 2020 2020 2020
 2020 2020 2020 2020 2020 2020
-2020 2020 2020 2020 2020 2020 -->
-
+2020 2020 2020 2020 2020 2020 --><br>
+<ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <a class="nav-link" [ngClass]="{'active': active2019}" (click)="yearSelected('2019')" href="javascript:;">2019</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [ngClass]="{'active': active2020}" (click)="yearSelected('2020')" href="javascript:;">2020</a>
+  </li>
+  </ul>
 <ul *ngIf="activeYear == 2020"class="accordion ms-main-aside fs-14"  style="cursor: pointer;" id="side-nav-accordion">
       
   <!-- Dashboard -->
