@@ -42,9 +42,8 @@
   <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
     <!-- Logo -->
     <div class="logo-sn ms-d-block-lg">
-      <br><br>
-      <a  class="text-center"> <img class="rounded-circle "src="assets/70.png" alt="logo"></a>
-      <h5 class="text-center text-white mt-2">COC jaarverslag</h5>
+      <br><br><br>
+      <h5 class="text-center text-white mt-2">ETZ COC jaarverslag</h5><br>
         
      
         
@@ -52,19 +51,15 @@
       
 
     </div><br>
-    <div (click)="clickNav()"  class="ms-aside-toggler ms-toggler" style="float: right;align-self: flex-end;">
-      <span class="ms-toggler-bar bg-white"></span>
-      <span class="ms-toggler-bar bg-white"></span>
-      <span class="ms-toggler-bar bg-white"></span>
-    </div>
-    <br><br>
+    
+    
 
     <!-- 2020 2020 2020 2020 2020 
 2020 2020 2020 2020 2020 2020
 2020 2020 2020 2020 2020 2020
 2020 2020 2020 2020 2020 2020
 2020 2020 2020 2020 2020 2020
-2020 2020 2020 2020 2020 2020 --><br>
+2020 2020 2020 2020 2020 2020 -->
 <ul class="nav nav-pills nav-fill">
   <li class="nav-item">
     <a class="nav-link" [ngClass]="{'active': active2020}" (click)="yearSelected('2020')" href="javascript:;">2020</a>
@@ -72,8 +67,12 @@
   <li class="nav-item">
     <a class="nav-link" [ngClass]="{'active': active2019}" (click)="yearSelected('2019')" href="javascript:;">2019</a>
   </li>
- 
-  </ul>
+  <div (click)="clickNav()"  class="ms-aside-toggler ms-toggler" style="float: right;align-self: flex-end;">
+    <span class="ms-toggler-bar bg-white"></span>
+    <span class="ms-toggler-bar bg-white"></span>
+    <span class="ms-toggler-bar bg-white"></span>
+  </div>
+  </ul><br><br>
 <ul *ngIf="activeYear == 2020"class="accordion ms-main-aside fs-14"  style="cursor: pointer;" id="side-nav-accordion">
       
   <!-- Dashboard -->
@@ -85,7 +84,7 @@
       <span><b>1.</b>&nbsp;&nbsp;Voorwoord </span>
     </a>
 
-    <a class="has-chevron" data-toggle="collapse" pageScroll href="#overstruc2020" data-target="#lokaal" aria-expanded="false" aria-controls="dashboard">
+    <a   pageScroll href="#overstruc2020" data-target="#lokaal" aria-expanded="false" aria-controls="dashboard">
       <span><b>2.</b>&nbsp;&nbsp;Overlegstructuur </span>
     </a>
 
@@ -99,7 +98,7 @@
       <span><b>3.</b>&nbsp;&nbsp;Terugblik 2020 </span>
     </a>
 
-    <a  class="has-chevron" pageScroll href="#re2020" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+    <a pageScroll href="#re2020" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
       <span><b>4.</b>&nbsp;&nbsp;Reguliere thema's </span>
     </a>
 
@@ -107,7 +106,7 @@
       <span><b>5.</b>&nbsp;&nbsp;Instroomcijfers </span>
     </a>
 
-    <a  class="has-chevron" pageScroll href="#nietre2020" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+    <a pageScroll href="#nietre2020" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
       <span><b>6.</b>&nbsp;&nbsp;Niet reguliere thema's </span>
     </a>
 
