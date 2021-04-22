@@ -72,7 +72,7 @@
   <li class="nav-item">
     <a class="nav-link" [ngClass]="{'active': active2019}" (click)="yearSelected('2019')" href="javascript:;">2019</a>
   </li>
-  
+ 
   </ul>
 <ul *ngIf="activeYear == 2020"class="accordion ms-main-aside fs-14"  style="cursor: pointer;" id="side-nav-accordion">
       
@@ -87,6 +87,18 @@
     <ul id="dashboard1" class="collapse" aria-labelledby="dashboard1" data-parent="#side-nav-accordion">
       <li> <a (click)="checkIfMobile()" pageScroll href="#voorzitter">Voorzitter COC</a> </li>
     </ul>
+
+    <a  class="has-chevron" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+      <span><b>1.</b>&nbsp;&nbsp;Voorwoord </span>
+    </a>
+
+    <a  class="has-chevron" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+      <span><b>1.</b>&nbsp;&nbsp;Voorwoord </span>
+    </a>
+
+    <a  class="has-chevron" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+      <span><b>1.</b>&nbsp;&nbsp;Voorwoord </span>
+    </a>
   </li>
 
   </ul>
