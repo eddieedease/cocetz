@@ -50,7 +50,7 @@
         
       
 
-    </div><br>
+    </div><br><br><br><br>
     
     
 
@@ -58,14 +58,14 @@
 2020 2020 2020 2020 2020 2020
 2020 2020 2020 2020 2020 2020
 2020 2020 2020 2020 2020 2020
-2020 2020 2020 2020 2020 2020
+2020 2020 2020 2020 2020 2020(click)=""
 2020 2020 2020 2020 2020 2020 -->
 <ul class="nav nav-pills nav-fill">
   <li class="nav-item">
-    <a class="nav-link" [ngClass]="{'active': active2020}" (click)="yearSelected('2020')" href="javascript:;">2020</a>
+    <a class="nav-link" [ngClass]="{'active': active2020}" (click)="yearSelected('2020');checkIfMobile()" href="javascript:;" style="color:#05263d">2020</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" [ngClass]="{'active': active2019}" (click)="yearSelected('2019')" href="javascript:;">2019</a>
+    <a class="nav-link" [ngClass]="{'active': active2019}" (click)="yearSelected('2019');checkIfMobile()" href="javascript:;" style="color:#05263d">2019</a>
   </li>
   <div (click)="clickNav()"  class="ms-aside-toggler ms-toggler" style="float: right;align-self: flex-end;">
     <span class="ms-toggler-bar bg-white"></span>
@@ -77,15 +77,15 @@
       
   <!-- Dashboard -->
   <li class="menu-item">
-    <a data-target="#home" aria-expanded="false" pageScroll href="#home" aria-controls="dashboard">
-      <span>Home</span>
+    <a (click)="checkIfMobile()" data-target="#home" aria-expanded="false" pageScroll href="#home" aria-controls="dashboard">
+      <span style="color:#05263d"><b>Home</b></span>
     </a>
-    <a pageScroll href="#vw2020" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
-      <span><b>1.</b>&nbsp;&nbsp;Voorwoord </span>
+    <a (click)="checkIfMobile()" pageScroll href="#vw2020" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+      <span><b style="color:#05263d">1.</b>&nbsp;&nbsp;Voorwoord </span>
     </a>
 
-    <a   pageScroll href="#overstruc2020" data-target="#lokaal" aria-expanded="false" aria-controls="dashboard">
-      <span><b>2.</b>&nbsp;&nbsp;Overlegstructuur </span>
+    <a (click)="checkIfMobile()"  pageScroll href="#overstruc2020" data-target="#lokaal" aria-expanded="false" aria-controls="dashboard">
+      <span><b style="color:#05263d">2.</b>&nbsp;&nbsp;Overlegstructuur </span>
     </a>
 
     <ul id="lokaal" class="collapse" aria-labelledby="dashboard1" data-parent="#side-nav-accordion">
@@ -94,24 +94,24 @@
       <li> <a (click)="checkIfMobile()" pageScroll href="#agendares2020">Agenda en Resultaten</a> </li>
     </ul>
 
-    <a  pageScroll href="#terugblik2020" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
-      <span><b>3.</b>&nbsp;&nbsp;Terugblik 2020 </span>
+    <a (click)="checkIfMobile()" pageScroll href="#terugblik2020" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+      <span><b style="color:#05263d">3.</b>&nbsp;&nbsp;Terugblik 2020 </span>
     </a>
 
-    <a pageScroll href="#re2020" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
-      <span><b>4.</b>&nbsp;&nbsp;Reguliere thema's </span>
+    <a (click)="checkIfMobile()" pageScroll href="#re2020" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+      <span><b style="color:#05263d">4.</b>&nbsp;&nbsp;Reguliere thema's </span>
     </a>
 
-    <a  pageScroll href="#instroom2020" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
-      <span><b>5.</b>&nbsp;&nbsp;Instroomcijfers </span>
+    <a (click)="checkIfMobile()" pageScroll href="#instroom2020" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+      <span><b style="color:#05263d">5.</b>&nbsp;&nbsp;Instroomcijfers </span>
     </a>
 
-    <a pageScroll href="#nietre2020" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
-      <span><b>6.</b>&nbsp;&nbsp;Niet reguliere thema's </span>
+    <a (click)="checkIfMobile()" pageScroll href="#nietre2020" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+      <span><b style="color:#05263d">6.</b>&nbsp;&nbsp;Niet reguliere thema's </span>
     </a>
 
-    <a  pageScroll href="#vooruitblik2021"  aria-expanded="false" aria-controls="dashboard">
-      <span><b>7.</b>&nbsp;&nbsp;Vooruitblik 2021 </span>
+    <a  (click)="checkIfMobile()" pageScroll href="#vooruitblik2021"  aria-expanded="false" aria-controls="dashboard">
+      <span><b style="color:#05263d">7.</b>&nbsp;&nbsp;Vooruitblik 2021 </span>
     </a>
   </li>
 <br><br><br><br>
@@ -177,7 +177,7 @@
         </ul> -->
       </li>
 
-      <li class="menu-item">
+      <!-- <li class="menu-item">
         <a  class="has-chevron" data-toggle="collapse" data-target="#dashboard5" aria-expanded="false" aria-controls="dashboard">
           <span>&nbsp;&nbsp;&nbsp;Bijlagen</span>
         </a>
@@ -186,7 +186,7 @@
           <li> <a (click)="checkIfMobile()" pageScroll href="#bijlage3">Procedures kwaliteitsinstrumenten</a> </li>
           <li> <a (click)="checkIfMobile()" pageScroll href="#bijlage1">Samenstelling COC - ETZ</a> </li>
         </ul>
-      </li>
+      </li> -->
     </ul>
   </aside>
 

@@ -10,8 +10,10 @@ export class SiteComponent implements OnInit {
 
   activeYear = 2020;
   
-
-  constructor(private modalService: BsModalService) {}
+  hostName;
+  constructor(private modalService: BsModalService) {
+   
+  }
 
   @ViewChild('pwdmodal', {static: false}) pwdmodalRef: TemplateRef < any > ;
 

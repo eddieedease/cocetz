@@ -1,6 +1,9 @@
-import { Component, ViewChild, AfterViewInit,  OnInit, TemplateRef} from '@angular/core';
+import { Component, ViewChild, AfterViewInit,  OnInit, TemplateRef, Inject } from '@angular/core';
 import { SiteComponent } from './site/site.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
+import { DOCUMENT } from '@angular/common';
+import { PageScrollService } from 'ngx-page-scroll-core';
 
 
 
@@ -37,10 +40,12 @@ export class AppComponent  {
     ignoreBackdropClick: false
   };
 
+  hostName;
+
   @ViewChild('pwdmodal', {static: false}) pwdmodalRef: TemplateRef < any > ;
 
 
-  constructor(private modalService: BsModalService){
+  constructor(private modalService: BsModalService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any){
     if (this.mq.matches) {
      
     } else {
@@ -56,9 +61,13 @@ export class AppComponent  {
     setTimeout( ()=> {
       this.activeYear = 2020;
       this.yearSelected('2020');
+      this.pageScrollService.scroll({
+        document: this.document,
+        scrollTarget: '.beginn',
+      });
     }, 0);
 
-   
+    
     // this returns null
 }
 
@@ -82,6 +91,11 @@ export class AppComponent  {
    
       }
     }
+
+    this.pageScrollService.scroll({
+      document: this.document,
+      scrollTarget: '.beginn',
+    });
 
     
   }
