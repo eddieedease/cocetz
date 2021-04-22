@@ -18,12 +18,12 @@ export class AppComponent  {
   // NOTE: SET ACTIVE START YEAR BELOW IN CONCSTRUCTOR
   activeYear;
 
-  active2019 = false;
-  active2020 = false;
+  active2019 = true;
+  active2020 = true;
 
   pwdProtect = true;
-  lastActive = '2019';
-  protected = '2020';
+  lastActive = '2020';
+  protected = '';
 
   pwdMessage = '';
 
@@ -54,8 +54,8 @@ export class AppComponent  {
   ngAfterViewInit() {
 
     setTimeout( ()=> {
-      this.activeYear = 2019;
-      this.yearSelected('2019');
+      this.activeYear = 2020;
+      this.yearSelected('2020');
     }, 0);
 
    
