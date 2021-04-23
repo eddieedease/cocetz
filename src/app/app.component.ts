@@ -30,8 +30,6 @@ export class AppComponent  {
 
   pwdMessage = '';
 
-  
-
   pwdUnlock = '';
 
   modalRef: BsModalRef;
