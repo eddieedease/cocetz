@@ -177,7 +177,6 @@ export class AppComponent  {
             case '2021':
             this.active2020 = true;
             break;
-   
       }
       this.pwdProtect = false;
       this.modalRef.hide();
