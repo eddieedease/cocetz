@@ -23,9 +23,10 @@ export class AppComponent  {
 
   active2019 = true;
   active2020 = true;
+  active2021 = true;
 
   pwdProtect = true;
-  lastActive = '2020';
+  lastActive = '2021';
   protected = '';
 
   pwdMessage = '';
@@ -57,8 +58,8 @@ export class AppComponent  {
   ngAfterViewInit() {
 
     setTimeout( ()=> {
-      this.activeYear = 2020;
-      this.yearSelected('2020');
+      this.activeYear = 2021;
+      this.yearSelected('2021');
       this.pageScrollService.scroll({
         document: this.document,
         scrollTarget: '.beginn',
@@ -79,12 +80,16 @@ export class AppComponent  {
       this.activeYear = +_year;
       this.active2019 = false;
       this.active2020 = false;
+      this.active2021 = false;
       switch (_year) {
         case '2019':
           this.active2019 = true;
           break;
           case '2020':
             this.active2020 = true;
+            break;
+            case '2021':
+            this.active2021 = true;
             break;
    
       }
@@ -161,11 +166,15 @@ export class AppComponent  {
       this.activeYear = +this.protected;
       this.active2019 = false;
       this.active2020 = false;
+      this.active2021 = false;
       switch (this.protected) {
         case '2019':
           this.active2019 = true;
           break;
           case '2020':
+            this.active2020 = true;
+            break;
+            case '2021':
             this.active2020 = true;
             break;
    

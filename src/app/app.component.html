@@ -62,6 +62,9 @@
 2020 2020 2020 2020 2020 2020 -->
 <ul class="nav nav-pills nav-fill">
   <li class="nav-item">
+    <a class="nav-link" [ngClass]="{'active': active2021}" (click)="yearSelected('2021');checkIfMobile()" href="javascript:;" style="color:#05263d">2021</a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" [ngClass]="{'active': active2020}" (click)="yearSelected('2020');checkIfMobile()" href="javascript:;" style="color:#05263d">2020</a>
   </li>
   <li class="nav-item">
