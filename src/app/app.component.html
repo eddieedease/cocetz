@@ -76,6 +76,58 @@
     <span class="ms-toggler-bar bg-white"></span>
   </div>
   </ul>
+
+
+  <ul *ngIf="activeYear == 2021"class="accordion ms-main-aside fs-14"  style="cursor: pointer;" id="side-nav-accordion">
+      
+    <!-- Dashboard -->
+    <li class="menu-item">
+      <a (click)="checkIfMobile()" data-target="#home" aria-expanded="false" pageScroll href="#home" aria-controls="dashboard">
+        <span style="color:#05263d"><b>Home</b></span>
+      </a>
+      <a (click)="checkIfMobile()" pageScroll href="#vw2020" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+        <span><b style="color:#05263d">1.</b>&nbsp;&nbsp;Voorwoord </span>
+      </a>
+  
+      <a (click)="checkIfMobile()"  pageScroll href="#overstruc2020" data-target="#lokaal" aria-expanded="false" aria-controls="dashboard">
+        <span><b style="color:#05263d">2.</b>&nbsp;&nbsp;Overlegstructuur </span>
+      </a>
+  
+      <ul id="lokaal" class="collapse" aria-labelledby="dashboard1" data-parent="#side-nav-accordion">
+        <li> <a (click)="checkIfMobile()" pageScroll href="#lokaal2020">Lokaal</a> </li>
+        <li> <a (click)="checkIfMobile()" pageScroll href="#regionaal2020">Regionaal</a> </li>
+        <li> <a (click)="checkIfMobile()" pageScroll href="#agendares2020">Agenda en Resultaten</a> </li>
+      </ul>
+  
+      <a (click)="checkIfMobile()" pageScroll href="#terugblik2020" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+        <span><b style="color:#05263d">3.</b>&nbsp;&nbsp;Terugblik 2020 </span>
+      </a>
+  
+      <a (click)="checkIfMobile()" pageScroll href="#re2020" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+        <span><b style="color:#05263d">4.</b>&nbsp;&nbsp;Reguliere thema's </span>
+      </a>
+  
+      <a (click)="checkIfMobile()" pageScroll href="#instroom2020" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+        <span><b style="color:#05263d">5.</b>&nbsp;&nbsp;Instroomcijfers </span>
+      </a>
+  
+      <a (click)="checkIfMobile()" pageScroll href="#nietre2020" data-toggle="collapse" data-target="#dashboard1" aria-expanded="false" aria-controls="dashboard">
+        <span><b style="color:#05263d">6.</b>&nbsp;&nbsp;Niet reguliere thema's </span>
+      </a>
+  
+      <a  (click)="checkIfMobile()" pageScroll href="#vooruitblik2021"  aria-expanded="false" aria-controls="dashboard">
+        <span><b style="color:#05263d">7.</b>&nbsp;&nbsp;Vooruitblik 2021 </span>
+      </a>
+    </li>
+  <br><br><br><br>
+    </ul>
+
+
+
+
+
+
+
 <ul *ngIf="activeYear == 2020"class="accordion ms-main-aside fs-14"  style="cursor: pointer;" id="side-nav-accordion">
       
   <!-- Dashboard -->
