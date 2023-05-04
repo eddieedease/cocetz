@@ -8,7 +8,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class SiteComponent implements OnInit {
 
-  activeYear = 2021;
+  activeYear = 2022;
   
   hostName;
   constructor(private modalService: BsModalService) {
