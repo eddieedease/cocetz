@@ -50,7 +50,7 @@
         
       
 
-    </div><br><br><br><br><br>
+    </div><br><br><br>
     
     
 
@@ -60,6 +60,11 @@
 2020 2020 2020 2020 2020 2020
 2020 2020 2020 2020 2020 2020(click)=""
 2020 2020 2020 2020 2020 2020 -->
+<div (click)="clickNav()"  class="ms-aside-toggler ms-toggler" style="float: right;align-self: flex-end;">
+  <span class="ms-toggler-bar bg-white"></span>
+  <span class="ms-toggler-bar bg-white"></span>
+  <span class="ms-toggler-bar bg-white"></span>
+</div>
 <ul class="nav nav-pills nav-fill">
   <li class="nav-item">
     <a class="nav-link" [ngClass]="{'active': active2022}" (click)="yearSelected('2022');checkIfMobile()" href="javascript:;" style="color:#05263d">2022</a>
@@ -75,11 +80,7 @@
   <li class="nav-item">
     <a class="nav-link" [ngClass]="{'active': active2019}" (click)="yearSelected('2019');checkIfMobile()" href="javascript:;" style="color:#05263d">2019</a>
   </li>
-  <div (click)="clickNav()"  class="ms-aside-toggler ms-toggler" style="float: right;align-self: flex-end;">
-    <span class="ms-toggler-bar bg-white"></span>
-    <span class="ms-toggler-bar bg-white"></span>
-    <span class="ms-toggler-bar bg-white"></span>
-  </div>
+  
 </ul>
 
   <ul *ngIf="activeYear == 2022"class="accordion ms-main-aside fs-14"  style="cursor: pointer;" id="side-nav-accordion">
