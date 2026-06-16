@@ -1,1 +1,84 @@
+.lightbox-overlay {
+  position: fixed;
+  z-index: 10000; /* Ensure it's above everything including bootstrap navbar/headers */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(15, 23, 42, 0.95); /* Deep dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: zoom-out;
+  backdrop-filter: blur(10px); /* Smooth premium glassmorphism blur */
+  transition: opacity 0.2s ease-in-out;
+}
 
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  cursor: default;
+  transform: scale(0.95);
+  animation: zoomIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    transform: scale(1);
+  }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 44px;
+  font-weight: 300;
+  transition: all 0.2s;
+  cursor: pointer;
+  line-height: 1;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-close:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.lightbox-caption {
+  margin-top: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 8px 16px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  max-width: 80%;
+}
+
+/* Hand pointer cursor and hover scaling for zoomable images */
+.img-zoomable {
+  cursor: zoom-in;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.img-zoomable:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15) !important;
+  filter: brightness(1.05);
+}

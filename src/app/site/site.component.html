@@ -6,6 +6,13 @@
 2020 2020 2020 2020 2020 2020 -->
 <div class="beginn"><br><br></div>
 
+<!-- Lightbox Modal -->
+<div *ngIf="isLightboxOpen" class="lightbox-overlay" (click)="closeLightbox()">
+  <span class="lightbox-close" (click)="closeLightbox()">&times;</span>
+  <img [src]="lightboxImgSrc" class="lightbox-content" (click)="$event.stopPropagation()" alt="Enlarged view">
+  <div *ngIf="lightboxImgAlt" class="lightbox-caption" (click)="$event.stopPropagation()">{{ lightboxImgAlt }}</div>
+</div>
+
 <div *ngIf="activeYear == 2025" class="row" id="home" style="padding-top:60px">
   <div class="col-lg-12 col-md-12 d-flex justify-content-center">
     <!-- <img src="assets/etzlogo.jpg" class="img-fluid" alt="ETZ logo"> -->
@@ -277,7 +284,7 @@
             <!-- Card 1: Visitaties -->
             <div class="col-md-6 mb-4">
               <div class="card h-100 shadow-sm">
-                <img src="assets/visitaties.png" class="card-img-top" alt="Visitaties">
+                <img src="assets/visitaties.png" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Visitaties">
                 <div class="card-body">
                   <h4 class="card-title">4.1 Visitaties</h4>
                   <p class="card-text">
@@ -332,7 +339,7 @@
             <!-- Card 2: Rapportages naar aanleiding van visitaties -->
             <div class="col-md-6 mb-4">
               <div class="card h-100 shadow-sm">
-                <img src="assets/2024rapportages.png" class="card-img-top" alt="Rapportages">
+                <img src="assets/2024rapportages.png" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Rapportages">
                 <div class="card-body">
                   <h4 class="card-title">4.2. Rapportages naar aanleiding van visitaties</h4>
                   <p class="card-text">
@@ -352,7 +359,7 @@
             <!-- Card 3: Interne kwaliteitscyclus -->
             <div class="col-md-6 mb-4">
               <div class="card h-100 shadow-sm">
-                <img src="assets/kwaliteit.png" class="card-img-top" alt="Interne kwaliteitscyclus">
+                <img src="assets/kwaliteit.png" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Interne kwaliteitscyclus">
                 <div class="card-body">
                   <h4 class="card-title">4.3 Interne kwaliteitscyclus</h4>
                   <p class="card-text">
@@ -386,7 +393,7 @@
             <!-- Card 4: Opleidingsaudits -->
             <div class="col-md-6 mb-4">
               <div class="card h-100 shadow-sm">
-                <img src="assets/audits.png" class="card-img-top" alt="Opleidingsaudits">
+                <img src="assets/audits.png" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Opleidingsaudits">
                 <div class="card-body">
                   <h4 class="card-title">4.4 Opleidingsaudits</h4>
                   <p class="card-text">
@@ -429,7 +436,7 @@
             <!-- Card 5: Jaargesprekken -->
             <div class="col-md-6 mb-4">
               <div class="card h-100 shadow-sm">
-                <img src="assets/jaargesprekken.png" class="card-img-top" alt="Jaargesprekken">
+                <img src="assets/jaargesprekken.png" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Jaargesprekken">
                 <div class="card-body">
                   <h4 class="card-title">4.5 Jaargesprekken</h4>
                   <p class="card-text">
@@ -494,7 +501,7 @@
             <!-- Card 6: Proefvisitatie -->
             <div class="col-md-6 mb-4">
               <div class="card h-100 shadow-sm">
-                <img src="assets/2024proef.png" class="card-img-top" alt="Proefvisitatie">
+                <img src="assets/2024proef.png" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Proefvisitatie">
                 <div class="card-body">
                   <h4 class="card-title">4.6 Proefvisitatie</h4>
                   <p class="card-text">
@@ -511,7 +518,7 @@
             <!-- Card 7: D-Rect en exitgesprekken -->
             <div class="col-md-6 mb-4">
               <div class="card h-100 shadow-sm">
-                <img src="assets/Drect exitgesprek.png" class="card-img-top" alt="D-Rect en exitgesprekken">
+                <img src="assets/Drect exitgesprek.png" class="card-img-top" style="height: 200px; object-fit: cover;" alt="D-Rect en exitgesprekken">
                 <div class="card-body">
                   <h4 class="card-title">4.7 D-Rect en exitgesprekken</h4>
                   <p class="card-text">
@@ -530,7 +537,7 @@
             <!-- Card 8: Geïntensiveerd begeleidingstraject (GBT) -->
             <div class="col-md-6 mb-4">
               <div class="card h-100 shadow-sm">
-                <img src="assets/gbt.png" class="card-img-top" alt="Geïntensiveerd begeleidingstraject">
+                <img src="assets/gbt.png" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Geïntensiveerd begeleidingstraject">
                 <div class="card-body">
                   <h4 class="card-title">4.8 Geïntensiveerd begeleidingstraject (GBT)</h4>
                   <p class="card-text">
@@ -548,7 +555,7 @@
             <!-- Card 9: DOO Happy Hour -->
             <div class="col-md-6 mb-4">
               <div class="card h-100 shadow-sm">
-                <img src="assets/Jaarverslag 2025 COC ETZ def_html_176feaf9.jpg" class="card-img-top"
+                <img src="assets/Jaarverslag 2025 COC ETZ def_html_176feaf9.jpg" class="card-img-top" style="height: 200px; object-fit: cover;"
                   alt="DOO Happy Hour">
                 <div class="card-body">
                   <h4 class="card-title">4.9 DOO Happy Hour</h4>
@@ -597,7 +604,7 @@
           <div class="card shadow-sm mb-4">
             <div class="card-body">
               <div class="row">
-                <div class="col-md-7">
+                 <div class="col-md-12">
                   <h4 class="card-title">Instroom opleidingen 2025</h4>
                   <p class="card-text">
                     In 2025 zijn verschillende arts-assistenten gestart met hun opleiding in het ETZ.
@@ -657,21 +664,6 @@
                     </table>
                   </div>
                 </div>
-
-                <div class="col-md-5">
-                  <div class="mt-4 mt-md-0 h-100 d-flex flex-column justify-content-center">
-                    <div class="card bg-light">
-                      <div class="card-body">
-                        <h5 class="card-title">Highlights</h5>
-                        <ul class="mb-0">
-                          <li>Totaal aantal nieuwe arts-assistenten: <strong>23</strong></li>
-                          <li>Hoogste instroom: <strong>Interne geneeskunde (6)</strong></li>
-                          <li>Spreiding over <strong>10 verschillende specialismen</strong></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -698,12 +690,11 @@
   <div class="col-lg-12 col-md-12" id="avt" style="padding-top:60px;background-color: white">
     <div class="container mt-5">
       <div class="row">
-        <div class="col-lg-12">
           <h2 class="mb-4">6. Arts-assistenten vereniging Tilburg (AVT)</h2>
 
           <div class="row">
             <!-- Main card about AVT role -->
-            <div class="col-md-8 mb-4">
+            <div class="col-md-12 mb-4">
               <div class="card h-100 shadow-sm">
                 <div class="card-body">
                   <h4 class="card-title">De rol van de AVT binnen de COC</h4>
@@ -748,96 +739,11 @@
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- AVT milestone card -->
-            <div class="col-md-4 mb-4">
-              <div class="card h-100 shadow-sm">
-                <img src="https://dummyimage.com/600x300/4287f5/ffffff&text=AVT" class="card-img-top" alt="AVT">
-                <div class="card-body">
-                  <h4 class="card-title">Mijlpaal 2025</h4>
-                  <div class="card-text">
-                    <div class="alert alert-success">
-                      <p class="mb-0">
-                        <strong>Arbeidsvoorwaarden & Huisvesting</strong><br>
-                        In 2025 was de AVT een cruciale gesprekspartner voor de CAO-implementatie en de assistentenkamer
-                        in het nieuwe acute centrum.
-                      </p>
-                    </div>
-
-                    <h5 class="mt-4">AVT als partner in</h5>
-                    <div class="list-group">
-                      <div class="list-group-item list-group-item-action flex-column align-items-start bg-light">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Interne audits</h5>
-                        </div>
-                        <p class="mb-1">Afgevaardigden aanwezig bij kwaliteitsaudits</p>
-                      </div>
-                      <div class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">CAO-onderhandelingen</h5>
-                        </div>
-                        <p class="mb-1">Nauwe samenwerking rond de 38+10 regeling</p>
-                      </div>
-                      <div class="list-group-item list-group-item-action flex-column align-items-start bg-light">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Acute centrum</h5>
-                        </div>
-                        <p class="mb-1">Planning van een volwaardige assistentenkamer</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Timeline card -->
-          <div class="card shadow-sm mb-4">
-            <div class="card-body">
-              <h4 class="card-title mb-4">AVT Betrokkenheid Timeline 2025</h4>
-              <div class="position-relative">
-                <div class="progress" style="height: 3px;">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 100%;" aria-valuenow="100"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-
-                <div class="row text-center mt-3">
-                  <div class="col">
-                    <div class="p-2 bg-primary text-white rounded-circle d-inline-block"
-                      style="width: 40px; height: 40px;">Q1</div>
-                    <p class="mt-2">Plenaire & DB COC stand-ups</p>
-                  </div>
-                  <div class="col">
-                    <div class="p-2 bg-primary text-white rounded-circle d-inline-block"
-                      style="width: 40px; height: 40px;">Q2</div>
-                    <p class="mt-2">CAO uitwerking & acute centrum planning</p>
-                  </div>
-                  <div class="col">
-                    <div class="p-2 bg-primary text-white rounded-circle d-inline-block"
-                      style="width: 40px; height: 40px;">Q3</div>
-                    <p class="mt-2">Interne audits & loopbaanpad support</p>
-                  </div>
-                  <div class="col">
-                    <div class="p-2 bg-primary text-white rounded-circle d-inline-block"
-                      style="width: 40px; height: 40px;">Q4</div>
-                    <p class="mt-2">Proefvisitatie & DOO XXL voorbereiding</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
-
-  </div>
-
-
-
-
-
-  <div class="col-lg-12 col-md-12" id="nietre2021" style="padding-top:60px">
+        <div class="col-lg-12 col-md-12" id="nietre2021" style="padding-top:60px">
 
 
     <div class="container mt-5">
@@ -846,315 +752,274 @@
           <h2 class="mb-4">7. Niet reguliere thema's</h2>
 
           <div class="row">
-            <!-- Card 1: COC aan zet -->
-            <div class="col-md-6 mb-4">
-              <div class="card h-100 shadow-sm">
-                <img src="assets/Jaarverslag 2025 COC ETZ def_html_cc435f70.jpg" class="card-img-top" alt="COC aan zet">
+            <!-- Card 7.1: COC aan zet -->
+            <div class="col-lg-12 mb-4">
+              <div class="card shadow-sm">
                 <div class="card-body">
-                  <h4 class="card-title">7.1 COC aan zet</h4>
-                  <p class="card-text">
-                    Het jaar 2025 stond voor de COC in het teken van het verder verstevigen van de positie binnen het
-                    ziekenhuis en in de regio, waarbij veel aandacht was voor het vormgeven van de rol als
-                    toezichthouder. Bovendien is er geïnvesteerd in het creëren van een open sfeer naar de opleidingen
-                    onderling, waarbij good practices worden gedeeld en casussen worden besproken.
+                  <h4 class="card-title text-primary font-weight-bold mb-3">7.1 COC aan zet</h4>
+                  <p class="card-text mb-4">
+                    Het jaar 2025 stond voor de COC in het teken van het verder verstevigen van de positie binnen het ziekenhuis en in de regio, waarbij veel aandacht was voor het vormgeven van de rol als toezichthouder. Bovendien is er geïnvesteerd in het creëren van een open sfeer naar de opleidingen onderling, waarbij good practices worden gedeeld in onder andere de COC vergadering, waar opleidingen van elkaar leren en tevens elkaars advies vragen in casussen die complexer zijn, dan wel minder goed lopen.
                   </p>
 
-                  <div class="alert alert-light border mb-3">
-                    <h5 class="h6 font-weight-bold">Trots op & Zichtbaarheid</h5>
-                    <div class="row align-items-center mt-2">
-                      <div class="col-sm-8">
-                        <p class="card-text small mb-0">
-                          Er is sterk geïnvesteerd in de zichtbaarheid van de COC door structureel overleg met de Raad
-                          van Bestuur en de CMS. Dit versterkt de toezichthoudende rol van de COC en de samenwerking
-                          binnen het ziekenhuis.
+                  <div class="card border-0 bg-light p-3 mb-4">
+                    <p class="card-text mb-0 font-italic text-muted">
+                      Tijdens de heisessie is het DB COC gevraagd een aantal punten te benoemen waar men trots op is. Onderstaand worden een aantal van deze punten uitgelicht.
+                    </p>
+                    <div class="row mt-3 justify-content-center">
+                      <div class="col-md-6 mb-3 text-center">
+                        <img src="assets/Jaarverslag 2025 COC ETZ def_html_cc435f70.jpg" class="img-fluid rounded shadow-sm img-zoomable" style="max-height: 220px; width: auto;" alt="DB COC Trots" (click)="openLightbox('assets/Jaarverslag 2025 COC ETZ def_html_cc435f70.jpg', 'DB COC Trots')">
+                      </div>
+                      <div class="col-md-6 mb-3 text-center">
+                        <img src="assets/Jaarverslag 2025 COC ETZ def_html_ab401e9a.jpg" class="img-fluid rounded shadow-sm img-zoomable" style="max-height: 220px; width: auto;" alt="DB COC Heisessie" (click)="openLightbox('assets/Jaarverslag 2025 COC ETZ def_html_ab401e9a.jpg', 'DB COC Heisessie')">
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 8 Sub-sections with clean and premium card design -->
+                  <div class="row">
+                    <!-- 1. Zichtbaarheid van de COC -->
+                    <div class="col-12 mb-3">
+                      <div class="border-left border-primary pl-3 py-2">
+                        <h5 class="font-weight-bold text-dark">Zichtbaarheid van de COC</h5>
+                        <div class="row align-items-center mt-2">
+                          <div class="col-lg-9">
+                            <p class="card-text text-muted mb-0">
+                              Afgelopen jaar is er door het DB COC geïnvesteerd in de zichtbaarheid van de COC. Door structureel in overleg te zijn met de Raad van Bestuur en de CMS is er een sterker fundament gebouwd voor de medische vervolgopleidingen. Het elkaar beter structureel informeren, zorgt voor een betere en effectievere samenwerking. Daarnaast weten de opleidingen het DB COC steeds vaker te vinden voor het inwinnen van advies. Het belang van de toezichthoudende rol van de COC wordt meer en meer zichtbaar, bij zowel de opleidingen als bij de verschillende gremia in het ziekenhuis. Dit heeft tot gevolg dat de driehoek Raad van Bestuur, COC en CMS steeds meer wordt versterkt en er ook daadwerkelijk veranderingen kunnen worden doorgevoerd.
+                            </p>
+                          </div>
+                          <div class="col-lg-3 text-center mt-3 mt-lg-0">
+                            <img src="assets/Jaarverslag 2025 COC ETZ def_html_17f22db1.png" class="img-fluid rounded shadow-sm img-zoomable" style="max-height: 160px; width: auto;" alt="Zichtbaarheid van de COC" (click)="openLightbox('assets/Jaarverslag 2025 COC ETZ def_html_17f22db1.png', 'Zichtbaarheid van de COC')">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 2. Financiële transparantie -->
+                    <div class="col-12 mb-3">
+                      <div class="border-left border-primary pl-3 py-2">
+                        <h5 class="font-weight-bold text-dark">Financiële transparantie</h5>
+                        <p class="card-text text-muted mt-2 mb-0">
+                          Op verzoek van de COC-leden heeft de business analist tijdens een COC vergadering financieel inzicht gegeven in de wijze waarop in het ETZ de beschikbaarheidsbijdrage wordt ingezet. Vragen als; ‘wat en wie worden allemaal betaald van de beschikbaarheidsbijdrage, hoeveel gaat er daadwerkelijk naar de aios en welke financiële keuzes worden er gemaakt met betrekking tot de beschikbaarheidsbijdrage’, werden tijdens deze presentatie toegelicht. De COC is voornemens om jaarlijks een dergelijk financieel overzicht te geven.
                         </p>
                       </div>
-                      <div class="col-sm-4 mt-2 mt-sm-0 text-center">
-                        <img src="assets/Jaarverslag 2025 COC ETZ def_html_17f22db1.png" class="img-fluid rounded"
-                          alt="Zichtbaarheid">
+                    </div>
+
+                    <!-- 3. COC middagen voor de COC -->
+                    <div class="col-12 mb-3">
+                      <div class="border-left border-primary pl-3 py-2">
+                        <h5 class="font-weight-bold text-dark">COC middagen voor de COC</h5>
+                        <p class="card-text text-muted mt-2 mb-0">
+                          Een van de taken voor de COC is de toezichthoudende rol van de COC voor de medische vervolgopleidingen. Veel van de tasks worden nu met name gedaan door leden van het DB COC, de onderwijskundige en opleidingsadviseur uit het leerhuis. De taken die binnen de toezichthoudende rol vallen, vragen meer tijd van de opleiders (COC-leden). Gezien de eindverantwoordelijkheid van de COC voor de medische vervolgopleidingen is er een business case opgesteld, waarin een verzoek is ingediend bij de Raad van Bestuur om meer tijd vrij te maken voor de leden van de COC, zodat zij ook de tijd en ruimte krijgen om de toezichthoudende rol te pakken. In de business case is een verzoek gedaan om vijf keer per jaar een COC middag te organiseren, waarbij per opleiding een COC-lid wordt gecompenseerd, wanneer deze onder een maatschap valt. Tijdens deze middag wordt, naast aan het einde van de middag de reguliere vergadering, met de leden gewerkt aan de kwaliteit van de opleidingen binnen het ETZ. Deze aanvraag is gehonoreerd door de Raad van Bestuur en CMS. Daarmee toont de Raad van Bestuur en de CMS tevens het belang van kwalitatief goede medische vervolgopleidingen en bevestigt het belang van de toezichthoudende rol van de COC.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- 4. Uitbreiding formatie team MVO -->
+                    <div class="col-12 mb-3">
+                      <div class="border-left border-primary pl-3 py-2">
+                        <h5 class="font-weight-bold text-dark">Uitbreiding formatie team MVO</h5>
+                        <p class="card-text text-muted mt-2 mb-0">
+                          In het kader van de toenemende zichtbaarheid van DB COC en de reeds genoemde toezichthoudende rol is er tevens een business case ingediend voor uitbreiding van formatie van het team Medische vervolgopleidingen. Deze businesscase is gebaseerd op inhoudelijke argumenten en de verhoging van de beschikbaarheidsbijdrage. Deze business case is gehonoreerd door de Raad van Bestuur, waardoor er eind 2025 een wervingstraject is opgestart voor een extra opleidingsadviseur Medische vervolgopleidingen voor 32 uur per week.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- 5. COC themabijeenkomsten -->
+                    <div class="col-12 mb-3">
+                      <div class="border-left border-primary pl-3 py-2">
+                        <h5 class="font-weight-bold text-dark">COC themabijeenkomsten</h5>
+                        <div class="row align-items-center mt-2">
+                          <div class="col-lg-9">
+                            <p class="card-text text-muted mb-2">
+                              In 2024 is de COC in het kader van samen leren gestart met de organisatie of COC themabijeenkomsten en de teach the teacher cursus in Tilburg. De COC themabijeenkomsten zijn themabijeenkomsten die op initiatief van de COC georganiseerd worden gedurende het jaar. Tijdens deze themabijeenkomsten komen diverse onderwerpen aan bod die bijdragen aan de didactische nascholing van de leden van de opleidingsgroepen.
+                            </p>
+                            <p class="card-text text-muted mb-2">
+                              In 2025 hebben er drie COC themabijeenkomsten plaatsgevonden met de volgende thema’s:
+                            </p>
+                            <ul class="card-text text-muted mb-0">
+                              <li>Feedback in de medische vervolgopleidingen door prof. dr. Fedde Scheele</li>
+                              <li>Recht, rechter of gewoonwerk; de juridische kant van de dagelijkse praktijk door Mr. M.J.J. (Michel) de Ridder, Advocaat (gezondheidsrecht en medische aansprakelijkheid)</li>
+                              <li>Samen beslissen in de praktijk door dr. Paul Brand (hoogleraar klinisch onderwijs)</li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-3 text-center mt-3 mt-lg-0">
+                            <img src="assets/Jaarverslag 2025 COC ETZ def_html_d98901ae.jpg" class="img-fluid rounded shadow-sm img-zoomable" style="max-height: 160px; width: auto;" alt="COC themabijeenkomsten" (click)="openLightbox('assets/Jaarverslag 2025 COC ETZ def_html_d98901ae.jpg', 'COC themabijeenkomsten')">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 6. Basisarts loopbaanpad -->
+                    <div class="col-12 mb-3">
+                      <div class="border-left border-primary pl-3 py-2">
+                        <h5 class="font-weight-bold text-dark">Basisarts loopbaanpad</h5>
+                        <p class="card-text text-muted mt-2 mb-2">
+                          In 2025 is het basisarts loopbaanpad verder geconcretiseerd en succesvol in de praktijk gebracht. In dat jaar heeft de eerste basisarts binnen dit traject de overstap gemaakt van het ene specialisme naar een volgend specialisme binnen het ETZ.
+                        </p>
+                        <p class="card-text text-muted mb-2">
+                          Daarnaast zijn in 2025 vier nieuwe basisartsen gestart binnen het loopbaanpad. Van deze groep hebben drie basisartsen een arbeidsovereenkomst met het ETZ afgesloten voor een periode van langer dan 18 maanden. Dit onderstreept zowel de aantrekkingskracht van het loopbaanpad als de meerwaarde ervan voor de duurzame inzet en ontwikkeling van jonge basisartsen.
+                        </p>
+                        <p class="card-text text-muted mb-0">
+                          Het basisarts loopbaanpad is opgezet als een maatwerktraject, waarbij (jonge) basisartsen binnen één dienstverband ervaring opdoen bij meerdere specialismen. Hierdoor krijgen zij de mogelijkheid zich breed te oriënteren, terwijl continuïteit binnen het ziekenhuis behouden blijft. De huidige basisartsen zijn of worden ingezet binnen onder andere de specialismen chirurgie, urologie, de Spoedeisende Hulp (SEH) en de beschouwende poule.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- 7. De 38+10-regeling voor AIOS in het ETZ -->
+                    <div class="col-12 mb-3">
+                      <div class="border-left border-primary pl-3 py-2">
+                        <h5 class="font-weight-bold text-dark">De 38+10-regeling voor AIOS in het ETZ</h5>
+                        <p class="card-text text-muted mt-2 mb-2">
+                          In 2025 is binnen het ETZ gewerkt aan een tijdelijke beleidsmatige uitwerking van de 38+10-arbeidstijdregeling voor AIOS, met als doel de CAO Ziekenhuizen eenduidig en praktisch toepasbaar te maken. Aanleiding hiervoor waren onder andere signalen vanuit de AVT over structurele overschrijding van arbeidstijden, waarbij de balans tussen opleiden en bedrijfsvoering onder druk kwam te staan.
+                        </p>
+                        <p class="card-text text-muted mt-2 mb-2">
+                          Het tijdelijke beleid richt zich nadrukkelijk op het ondersteunen of het werkplezier, welzijn en de gezondheid van AIOS, zonder daarbij afbreuk te doen aan continuïteit van zorg en opleidingskwaliteit. Centraal staat het realiseren of werkbare roosters, correcte registratie of gewerkte uren en heldere afspraken over compensatie, binnen de kaders of de geldende CAO-afspraken. Binnen het tijdelijke beleid worden AIOS maximaal 45 uur per week ingepland, waarvan 38 uren verloond. Extra gewerkte uren worden geregistreerd en waar nodig gecompenseerd in tijd. Hierbij is afgesproken dat compensatie zo veel mogelijk binnen afzienbare termijn plaatsvindt, rekening houdend met de planhorizon en de werkbaarheid van roosters.
+                        </p>
+                        <p class="card-text text-muted mt-2 mb-2">
+                          Het doel is niet het strikt “afrekenen” op uren, maar het gezamenlijk verbeteren of de inrichting of de opleiding. Daarbij wordt gezocht naar een betere samenhang tussen productie, opleidingsmomenten en werkdruk, met blijvende aandacht voor een gezond en veilig leer-werkklimaat.
+                        </p>
+                        <p class="card-text text-muted font-italic mb-0">
+                          Dit beleid wordt geëvalueerd en als het positief is bevonden vastgesteld.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- 8. Werkbezoek FMS & DJS -->
+                    <div class="col-12 mb-3">
+                      <div class="border-left border-primary pl-3 py-2">
+                        <h5 class="font-weight-bold text-dark">Werkbezoek Federatie Medisch Specialisten en De Jonge Specialist in het kader of Ruimte voor Opleiden</h5>
+                        <p class="card-text text-muted mt-2 mb-3">
+                          In het kader van het project Ruimte voor Opleiden heeft de FMS en DJS een bezoek gebracht aan het ETZ. Tijdens dit bezoek maakten zij kennis met de initiatiefnemers of het Zorg Innovatie Centrum (ZIC) op de SEH en andere afdelingen. Tijdens het werkbezoek heeft een delegatie van de FMS en DJS gezien en gevoeld hoe je praktijkleren en zorg optimaal integreert en zorgprofessionals in hun ontwikkeling begeleidt. Er is bij deze manier of begeleiden veel aandacht for het inrichten of een begeleidingsstructuur die individueel èn interprofessioneel leren mogelijk maakt. De FMS en DJS willen vanuit de ervaringen die ze tijdens deze ochtend hebben opgedaan onderzoeken wat ze van deze manier van opleiden kunnen gebruiken bij het opleiden of breed inzetbare medisch specialisten. Zowel de COC voorzitter als de opleidingsadviseurs van het Leerhuis waren nauw betrokken bij de organisatie of dit werkbezoek. Een werkbezoek waarbij het opleiden of verpleegkundigen en medisch specialisten samen kwam.
+                        </p>
+                        <div class="row justify-content-center">
+                          <div class="col-md-4 col-6 text-center mb-3">
+                            <img src="assets/Jaarverslag 2025 COC ETZ def_html_40ccccee.gif" class="img-fluid rounded shadow-sm img-zoomable" style="max-height: 220px; width: auto;" alt="Werkbezoek - Tafeloverleg" (click)="openLightbox('assets/Jaarverslag 2025 COC ETZ def_html_40ccccee.gif', 'Werkbezoek - Tafeloverleg')">
+                          </div>
+                          <div class="col-md-4 col-6 text-center mb-3">
+                            <img src="assets/Jaarverslag 2025 COC ETZ def_html_e9191939.jpg" class="img-fluid rounded shadow-sm img-zoomable" style="max-height: 220px; width: auto;" alt="Werkbezoek - Informatiebord" (click)="openLightbox('assets/Jaarverslag 2025 COC ETZ def_html_e9191939.jpg', 'Werkbezoek - Informatiebord')">
+                          </div>
+                          <div class="col-md-4 col-12 text-center mb-3">
+                            <img src="assets/Jaarverslag 2025 COC ETZ def_html_a11c60bd.jpg" class="img-fluid rounded shadow-sm img-zoomable" style="max-height: 220px; width: auto;" alt="Werkbezoek - Presentatie" (click)="openLightbox('assets/Jaarverslag 2025 COC ETZ def_html_a11c60bd.jpg', 'Werkbezoek - Presentatie')">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7.2: Meerjarenbeleidsplan 2025-2028 -->
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <h4 class="card-title text-primary font-weight-bold mb-3">7.2 Meerjarenbeleidsplan 2025-2028</h4>
+                  <p class="card-text">
+                    Het meerjarenbeleidsplan van het COC liep af in december 2024. In samenwerking met de COC-leden is in 2024 en 2025 gewerkt aan het bepalen van nieuwe strategische speerpunten voor de komende jaren. Het dagelijks bestuur (DB) heeft hiervoor een eerste aanzet gedaan tijdens een heisessie, waarna deze in de COC-vergadering verder gezamenlijk is besproken en aangescherpt.
+                  </p>
+                  <p class="card-text">
+                    Tijdens een interactieve brainstormsessie hebben opleiders prioriteiten gesteld door hun ‘budget’ te verdelen over verschillende thema’s. Dit heeft geleid tot de volgende speerpunten:
+                  </p>
+
+                  <div class="row my-3 justify-content-center">
+                    <div class="col-6 mb-2">
+                      <div class="p-2 rounded text-center font-weight-bold shadow-sm" style="background-color: #e3f2fd; color: #0d47a1; font-size: 0.9rem; border: 1px solid #bbdefb;">
+                        Duurzaamheid in de zorg
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class="p-2 rounded text-center font-weight-bold shadow-sm" style="background-color: #e8f5e9; color: #1b5e20; font-size: 0.9rem; border: 1px solid #c8e6c9;">
+                        Modern opleiden
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class="p-2 rounded text-center font-weight-bold shadow-sm" style="background-color: #e0f7fa; color: #006064; font-size: 0.9rem; border: 1px solid #b2ebf2;">
+                        De dokter van de toekomst
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class="p-2 rounded text-center font-weight-bold shadow-sm" style="background-color: #f3e5f5; color: #4a148c; font-size: 0.9rem; border: 1px solid #e1bee7;">
+                        COC 2.0
                       </div>
                     </div>
                   </div>
 
                   <p class="card-text">
-                    <strong>Financiële transparantie:</strong> Op verzoek van de COC-leden heeft de business analist
-                    inzicht gegeven in de wijze waarop in het ETZ de beschikbaarheidsbijdrage wordt ingezet. De COC is
-                    voornemens om jaarlijks een dergelijk financieel overzicht te geven.
+                    In 2025 lag de nadruk op het versterken en verder verankeren van de rol van het COC. Daarbij is ingezet op zowel het borgen of de basis of de verschillende medische vervolgopleidingen, als de doorontwikkeling van COC 2.0 (zie hoofdstuk 7.1).
                   </p>
                   <p class="card-text">
-                    <strong>COC middagen:</strong> De Raad van Bestuur en CMS hebben een business case gehonoreerd om
-                    vijf keer per jaar een COC middag te organiseren, waarbij per opleiding een COC-lid financieel wordt
-                    gecompenseerd.
+                    In 2026 wordt het meerjarenbeleid verder uitgewerkt. Hoewel het beleidsplan nog niet definitief is vastgesteld, zijn reeds concrete stappen gezet binnen de thema’s duurzaamheid, modern opleiden en de dokter van de toekomst. De ontwikkeling of COC 2.0 fungeert hierbij als belangrijke aanjager.
                   </p>
-                  <p class="card-text">
-                    <strong>Uitbreiding formatie MVO:</strong> Eind 2025 is een werving gestart voor een extra
-                    opleidingsadviseur (32 uur) voor het team Medische Vervolgopleidingen.
-                  </p>
-                  <p class="card-text">
-                    <strong>CAO 38+10 Regeling:</strong> Om werkdruk tegen te gaan is er een tijdelijke beleidsmatige
-                    uitwerking gemaakt. AIOS worden maximaal 45 uur ingepland (38 uur verloond), waarbij extra uren
-                    correct worden geregistreerd en gecompenseerd.
-                  </p>
+                </div>
+              </div>
+            </div>
 
-                  <div class="alert alert-light border mt-3">
-                    <h5 class="h6 font-weight-bold">Werkbezoek FMS en De Jonge Specialist</h5>
-                    <p class="card-text small mb-2">
-                      In het kader van het project <em>Ruimte voor Opleiden</em> brachten FMS en DJS een werkbezoek aan
-                      het ETZ om te zien hoe praktijkleren en interprofessionele begeleiding op o.a. de SEH zijn
-                      geïntegreerd.
+            <!-- Card 7.3: De co van vandaag is de a(n)ios van morgen -->
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100 shadow-sm d-flex flex-column justify-content-between">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <div>
+                    <h4 class="card-title text-primary font-weight-bold mb-3">7.3 De co van vandaag is de a(n)ios van morgen</h4>
+                    <p class="card-text">
+                      In 2023 startte het project De “co van vandaag is de a(n)ios van morgen”. Ook in 2025 loopt het project ‘De co van vandaag is de basisarts/aios van morgen’ nog steeds. De coassistent wordt binnen de COC gezien als een zeer waardevolle doelgroep, waarvan het van belang is om de coassistent ‘verliefd’ te laten worden op het ETZ en de stad Tilburg, zodat ze na de coschappen willen blijven in of willen terugkeren naar het ETZ.
                     </p>
-                    <div class="row mt-2">
-                      <div class="col-4">
-                        <img src="assets/Jaarverslag 2025 COC ETZ def_html_40ccccee.gif" class="img-fluid rounded"
-                          alt="Werkbezoek 1">
-                      </div>
-                      <div class="col-4">
-                        <img src="assets/Jaarverslag 2025 COC ETZ def_html_e9191939.jpg" class="img-fluid rounded"
-                          alt="Werkbezoek 2">
-                      </div>
-                      <div class="col-4">
-                        <img src="assets/Jaarverslag 2025 COC ETZ def_html_a11c60bd.jpg" class="img-fluid rounded"
-                          alt="Werkbezoek 3">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 2: Meerjarenbeleidsplan 2025-2028 -->
-            <div class="col-md-6 mb-4">
-              <div class="card h-100 shadow-sm">
-                <img src="assets/Jaarverslag 2025 COC ETZ def_html_ab401e9a.jpg" class="card-img-top"
-                  alt="Meerjarenbeleidsplan">
-                <div class="card-body">
-                  <h4 class="card-title">7.2 Meerjarenbeleidsplan 2025-2028</h4>
-                  <p class="card-text">
-                    Het meerjarenbeleidsplan van het COC liep af in december 2024. In samenwerking met de COC-leden is
-                    in 2024 en 2025 gewerkt aan het bepalen van nieuwe strategische speerpunten voor de komende jaren.
-                    Het dagelijks bestuur (DB) heeft hiervoor een eerste aanzet gedaan tijdens een heisessie, waarna
-                    deze in de COC-vergadering verder gezamenlijk is besproken en aangescherpt.
-                  </p>
-
-                  <p class="card-text">
-                    Tijdens een interactieve brainstormsessie hebben opleiders prioriteiten gesteld door hun ‘budget’ te
-                    verdelen over verschillende thema’s. Dit heeft geleid tot de volgende speerpunten:
-                  </p>
-
-                  <div class="row mb-3">
-                    <div class="col-md-6 mb-3">
-                      <div class="card bg-primary text-white text-center h-100 shadow-sm">
-                        <div class="card-body d-flex align-items-center justify-content-center py-2">
-                          <span class="font-weight-bold" style="color:white">Duurzaamheid in de zorg</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <div class="card bg-success text-white text-center h-100 shadow-sm">
-                        <div class="card-body d-flex align-items-center justify-content-center py-2">
-                          <span class="font-weight-bold" style="color:white">Modern opleiden</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <div class="card bg-info text-white text-center h-100 shadow-sm">
-                        <div class="card-body d-flex align-items-center justify-content-center py-2">
-                          <span class="font-weight-bold" style="color:white">De dokter van de toekomst</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <div class="card bg-secondary text-white text-center h-100 shadow-sm">
-                        <div class="card-body d-flex align-items-center justify-content-center py-2">
-                          <span class="font-weight-bold" style="color:white">COC 2.0</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p class="card-text">
-                    In 2025 lag de nadruk op het versterken en verder verankeren van de rol van het COC. Daarbij is
-                    ingezet op zowel het borgen van de basis van de verschillende medische vervolgopleidingen, als de
-                    doorontwikkeling van COC 2.0 (zie hoofdstuk 7.1).
-                  </p>
-                  <p class="card-text">
-                    In 2026 wordt het meerjarenbeleid verder uitgewerkt. Hoewel het beleidsplan nog niet definitief is
-                    vastgesteld, zijn reeds concrete stappen gezet binnen de thema’s duurzaamheid, modern opleiden en de
-                    dokter van de toekomst. De ontwikkeling van COC 2.0 fungeert hierbij als belangrijke aanjager.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3: De co van vandaag is de a(n)ios van morgen -->
-            <div class="col-md-6 mb-4">
-              <div class="card h-100 shadow-sm">
-                <img src="assets/Jaarverslag 2025 COC ETZ def_html_f29a9ec0.png" class="card-img-top"
-                  alt="De co van vandaag is de a(n)ios van morgen">
-                <div class="card-body">
-                  <h4 class="card-title">7.3 De co van vandaag is de a(n)ios van morgen</h4>
-                  <div class="row mb-3">
-                    <div class="col-md-8 col-sm-12">
-                      <p class="card-text">
-                        In 2023 startte het project De “co van vandaag is de a(n)ios van morgen”. Ook in 2025 loopt het
-                        project ‘De co van vandaag is de basisarts/aios van morgen’ nog steeds. De coassistent wordt
-                        binnen de COC gezien als een zeer waardevolle doelgroep, waarvan het van belang is om de
-                        coassistent ‘verliefd’ te laten worden op het ETZ en de stad Tilburg, zodat ze na de coschappen
-                        willen blijven in of willen terugkeren naar het ETZ.
-                      </p>
-                    </div>
-                    <div class="col-md-4 col-sm-12 text-center">
-                      <img src="assets/Jaarverslag 2025 COC ETZ def_html_a2f559ee.jpg"
-                        class="img-fluid rounded shadow-sm" alt="Co-wandeling">
-                    </div>
-                  </div>
-
-                  <p class="card-text">
-                    Om dat te bewerkstelligen worden er diverse activiteiten georganiseerd voor de coassistenten. De
-                    co-wandeling wordt 6 keer per jaar georganiseerd, waar alle coassistenten in een middag de
-                    gelegenheid krijgen om elkaar en de stad Tilburg te leren kennen. Gemiddeld nemen hier 35
-                    coassistenten aan deel.
-                  </p>
-
-                  <p class="card-text">
-                    Tevens is er elke laatste vrijdag van de maand de co-krokettenlunch. Onder het genot van een kroket
-                    kunnen de coassistenten ervaringen met elkaar uitwisselen en vier keer per jaar wordt tijdens deze
-                    lunch ook discipline overstijgend onderwijs gegeven. De krokettenlunch wordt sinds dit jaar ook voor
-                    de coassistenten op locatie TweeSteden georganiseerd. Sinds 2025 wordt er drie keer per jaar een
-                    ABCDE training aangeboden voor de senior- en keuzecoassistenten. Deze training wordt gegeven door
-                    twee aios van de SEG-opleiding.
-                  </p>
-
-                  <p class="card-text">
-                    Ook huisvesting draagt bij aan het ‘verliefd’ worden op de stad en het ziekenhuis. Als gevolg van
-                    structurele tekorten aan co-kamers, wordt de voormalige geriatrie afdeling in het TweeSteden
-                    ziekenhuis omgebouwd naar co-kamers, zodat we meer coassistenten een tijdelijk onderkomen kunnen
-                    bieden, wat bijdraagt aan een verbeterde werk-privé balans.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4: Basisarts loopbaanpad -->
-            <div class="col-md-6 mb-4">
-              <div class="card h-100 shadow-sm">
-                <img src="assets/verbeterplan.png" class="card-img-top" alt="Basisarts loopbaanpad">
-                <div class="card-body">
-                  <h4 class="card-title">7.4 Basisarts loopbaanpad</h4>
-                  <div class="row mb-3">
-                    <div class="col-md-12">
-                      <p class="card-text">
-                        In 2025 is het basisarts loopbaanpad verder geconcretiseerd en succesvol in de praktijk
-                        gebracht. In dat jaar heeft de eerste basisarts binnen dit traject de overstap gemaakt van het
-                        ene specialisme naar een volgend specialisme binnen het ETZ.
-                      </p>
-                      <p class="card-text">
-                        Daarnaast zijn in 2025 vier nieuwe basisartsen gestart binnen het loopbaanpad. Van deze groep
-                        hebben drie basisartsen een arbeidsovereenkomst met het ETZ afgesloten voor een periode van
-                        langer dan 18 maanden. Dit onderstreept zowel de aantrekkingskracht van het loopbaanpad als de
-                        meerwaarde ervan voor de duurzame inzet en ontwikkeling van jonge basisartsen.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="card bg-light">
-                        <div class="card-body">
-                          <h5 class="card-title">Kenmerken & Inzet</h5>
-                          <p class="card-text">
-                            Het basisarts loopbaanpad is opgezet als een maatwerktraject, waarbij (jonge) basisartsen
-                            binnen één dienstverband ervaring opdoen bij meerdere specialismen. Hierdoor krijgen zij de
-                            mogelijkheid zich breed te oriënteren, terwijl continuïteit binnen het ziekenhuis behouden
-                            blijft.
-                          </p>
-                          <ul class="mb-0 font-weight-bold">
-                            <li>Duurzaam inzetbare basisartsen</li>
-                            <li>Tijdelijke inzet chirurgie, urologie, SEH & beschouwende poule</li>
-                            <li>Zekerheid via langdurige contracten (>18 maanden)</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 5: COC themabijeenkomsten -->
-            <div class="col-md-6 mb-4">
-              <div class="card h-100 shadow-sm">
-                <img src="assets/Jaarverslag 2025 COC ETZ def_html_d98901ae.jpg" class="card-img-top"
-                  alt="COC themabijeenkomsten">
-                <div class="card-body">
-                  <h4 class="card-title">7.5 COC themabijeenkomsten</h4>
-                  <p class="card-text">
-                    In 2024 is de COC in het kader van samen leren gestart met de organisatie van COC themabijeenkomsten
-                    en de teach the teacher cursus in Tilburg. De COC themabijeenkomsten zijn themabijeenkomsten die op
-                    initiatief van de COC georganiseerd worden gedurende het jaar en bijdragen aan de didactische
-                    nascholing van de opleidingsgroepen.
-                  </p>
-
-                  <div class="card bg-light mt-3">
-                    <div class="card-body">
-                      <h5 class="card-title mb-3">Themabijeenkomsten in 2025</h5>
-                      <ul class="list-unstyled mb-0">
-                        <li class="mb-3 border-bottom pb-2">
-                          <strong>Feedback in de medische vervolgopleidingen</strong><br>
-                          <span class="text-muted">Door prof. dr. Fedde Scheele</span>
-                        </li>
-                        <li class="mb-3 border-bottom pb-2">
-                          <strong>Recht, rechter of gewoonwerk; de juridische kant van de dagelijkse
-                            praktijk</strong><br>
-                          <span class="text-muted">Door Mr. M.J.J. (Michel) de Ridder, Advocaat (gezondheidsrecht en
-                            medische aansprakelijkheid)</span>
-                        </li>
-                        <li class="mb-0">
-                          <strong>Samen beslissen in de praktijk</strong><br>
-                          <span class="text-muted">Door dr. Paul Brand (hoogleraar klinisch onderwijs)</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 6: Leergang Specialist van de Toekomst -->
-            <div class="col-md-6 mb-4">
-              <div class="card h-100 shadow-sm">
-                <img src="assets/Jaarverslag 2025 COC ETZ def_html_1c02f435.jpg" class="card-img-top"
-                  alt="Leergang Specialist van de Toekomst">
-                <div class="card-body">
-                  <h4 class="card-title">7.6 Leergang Specialist van de Toekomst</h4>
-                  <p class="card-text">
-                    In september 2025 is de Leergang Specialist van de Toekomst weer gestart. Deze leergang is bedoeld
-                    voor specialisten die maximaal drie jaar werkzaam zijn als specialist én aios die bijna klaar zijn
-                    met hun opleiding.
-                  </p>
-                  <p class="card-text">
-                    In deze leergang, met 10 maanden lang elke maand een bijeenkomst, gaan interne en externe
-                    gastdocenten met de deelnemers aan de slag met thema’s als ‘leiderschap’, ‘management en beleid’,
-                    ‘kwaliteit en veiligheid’ en ‘veranderkunde’.
-                  </p>
-                  <div class="alert alert-info mt-3 mb-0">
-                    <p class="mb-0">
-                      Naast deze inhoudelijke thema’s vormt de persoonlijke ontwikkeling als “Specialist van de
-                      Toekomst” een rode draad en pakken de deelnemers een veranderproject op. In de editie van
-                      2025-2026 zijn <strong>13 deelnemers</strong> gestart.
+                    <p class="card-text">
+                      Om dat te bewerkstelligen worden er diverse activiteiten georganiseerd voor de coassistenten. De co-wandeling wordt 6 keer per jaar georganiseerd, waar alle coassistenten in een middag de gelegenheid krijgen om elkaar en de stad Tilburg te leren kennen. Gemiddeld nemen hier 35 coassistenten aan deel.
+                    </p>
+                    <p class="card-text">
+                      Tevens is er elke laatste vrijdag van de maand de co-krokettenlunch. Onder het genot van een kroket kunnen de coassistenten ervaringen met elkaar uitwisselen en vier keer per jaar wordt tijdens deze lunch ook discipline overstijgend onderwijs gegeven. De krokettenlunch wordt sinds dit jaar ook voor de coassistenten op locatie TweeSteden georganiseerd. Sinds 2025 wordt er drie keer per jaar een ABCDE training aangeboden voor de senior- en keuzecoassistenten. Deze training wordt gegeven door twee aios van de SEG-opleiding.
+                    </p>
+                    <p class="card-text">
+                      Ook huisvesting draagt bij aan het ‘verliefd’ worden op de stad en het ziekenhuis. Als gevolg van structurele tekorten aan co-kamers, wordt de voormalige geriatrie afdeling in het TweeSteden ziekenhuis omgebouwd naar co-kamers, zodat we meer coassistenten een tijdelijk onderkomen kunnen bieden, wat bijdraagt aan een verbeterde werk-privé balans.
                     </p>
                   </div>
+                  <div class="row mt-4 justify-content-center align-items-end">
+                    <div class="col-6 text-center">
+                      <img src="assets/Jaarverslag 2025 COC ETZ def_html_a2f559ee.jpg" class="img-fluid rounded shadow-sm img-zoomable" style="max-height: 180px; width: 100%; object-fit: cover;" alt="Co-wandeling - Lunch groepsfoto" (click)="openLightbox('assets/Jaarverslag 2025 COC ETZ def_html_a2f559ee.jpg', 'Co-wandeling - Lunch groepsfoto')">
+                    </div>
+                    <div class="col-6 text-center">
+                      <img src="assets/Jaarverslag 2025 COC ETZ def_html_f29a9ec0.png" class="img-fluid rounded shadow-sm img-zoomable" style="max-height: 220px; width: auto; max-width: 100%; object-fit: contain;" alt="Co-wandeling - Programma flyer" (click)="openLightbox('assets/Jaarverslag 2025 COC ETZ def_html_f29a9ec0.png', 'Co-wandeling - Programma flyer')">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <!-- Card 7.4: Leergang Specialist van de Toekomst -->
+            <div class="col-lg-12 mb-4">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-md-8 col-12">
+                      <h4 class="card-title text-primary font-weight-bold mb-3">7.4 Leergang Specialist van de Toekomst</h4>
+                      <p class="card-text">
+                        In september 2025 is de Leergang Specialist van de Toekomst weer gestart.
+                      </p>
+                      <p class="card-text">
+                        Deze leergang is bedoeld voor specialisten die maximaal drie jaar werkzaam zijn als specialist én aios die bijna klaar zijn met hun opleiding. In deze leergang, met 10 maanden lang elke maand een bijeenkomst, gaan interne en externe gastdocenten met de deelnemers aan de slag met thema’s als ‘leiderschap’, ‘management en beleid’, ‘kwaliteit en veiligheid’ en ‘veranderkunde’.
+                      </p>
+                      <p class="card-text font-weight-bold mb-0">
+                        Naast deze inhoudelijke thema’s vormt de persoonlijke ontwikkeling als “Specialist van de Toekomst” een rode draad en pakken de deelnemers een veranderproject op. In de editie van 2025-2026 zijn 13 deelnemers gestart.
+                      </p>
+                    </div>
+                    <div class="col-md-4 col-12 text-center mt-3 mt-md-0">
+                      <img src="assets/Jaarverslag 2025 COC ETZ def_html_1c02f435.jpg" class="img-fluid rounded shadow-sm img-zoomable" style="max-height: 220px; object-fit: cover; width: 100%;" alt="Specialist van de Toekomst" (click)="openLightbox('assets/Jaarverslag 2025 COC ETZ def_html_1c02f435.jpg', 'Leergang Specialist van de Toekomst')">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+    <!-- Chapter 8 (Vooruitblik 2026) -->
     <div class="row" style="background-color: white;">
       <div class="col-lg-12 col-md-12 col-sm-12" id="vooruitblik2021">
-
-
         <div class="container mt-5">
           <div class="row">
             <div class="col-lg-12">
@@ -1162,40 +1027,38 @@
 
               <div class="card shadow-sm mb-5">
                 <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-8">
-                      <h4 class="card-title">Visie en plannen voor het komende jaar</h4>
+                  <div class="row align-items-center">
+                    <div class="col-md-9 col-12">
+                      <h4 class="card-title text-primary font-weight-bold mb-3">Vooruitblik op het komende jaar</h4>
                       <p class="card-text">
-                        De rol van kwaliteitsbewaker blijft ook van essentieel belang in 2026. In 2026 zullen diverse
-                        (regionale) evaluatiebezoeken bij een aantal opleidingen plaatsvinden, als ook het
-                        evaluatiebezoek van de instelling. Vanuit haar toezichthoudende rol werkt de COC hierbij nauw
-                        samen met de opleidingen.
+                        De rol van kwaliteitsbewaker blijft ook van essentieel belang in 2026. In 2026 zullen diverse (regionale) evaluatiebezoeken bij een aantal opleidingen plaatsvinden, als ook het evaluatiebezoek van de instelling. Vanuit haar toezichthoudende rol werkt de COC hierbij nauw samen met de opleidingen.
                       </p>
-
                       <p class="card-text">
-                        In 2026 zal de COC het nieuwe meerjarenbeleidsplan presenteren met hierin de nieuwe speerpunten.
+                        In 2026 zal de COC het nieuwe meerjarenbeleidsplan presenteren met hierin de nieuwe speerpunten. Er staan weer vier DOO Happy Hours op de planning, waarvan de eerste plaatsvindt op 14 januari 2026. Dit is tevens een bijzondere editie omdat tijdens dit DOO XXL het thema ‘Samenwerken in het heetst van de strijd’, centraal staat, met twee spreker (oud-commando’s) van TV programma Kamp van Koningsbrugge. Dit DOO zal voor alle geïnteresseerden in het ziekenhuis toegankelijk zijn.
+                      </p>
+                      <p class="card-text">
+                        Ook staan er in 2026 weer een viertal COC themabijeenkomsten gepland. De eerste vindt plaats op 12 januari. Deze bijeenkomst heeft als titel ‘De visie medisch specialist 2035’ verzorgd door de FMS. Hierbij kunnen naast de leden van de COC ook overige geïnteresseerden aansluiten. Op 28 oktober staat er een basiscursus teach the teacher gepland voor startende supervisoren. En op 22 juni staat er weer een teach the co gepland. Een didactische basiscursus voor arts-assistenten die coassistenten begeleiden tijdens coschappen.
                       </p>
                     </div>
-                    <div class="col-md-4">
-                      <img src="assets/2024jaarplan.png" class="img-fluid rounded" alt="Vooruitblik 2026">
+                    <div class="col-md-3 col-12 text-center">
+                      <img src="assets/2024jaarplan.png" class="img-fluid rounded shadow-sm" style="max-height: 180px;" alt="Vooruitblik 2026">
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Key Events Cards -->
+              <!-- Key Events Grid (exactly 4 events) -->
               <div class="row mb-5">
                 <div class="col-md-6 col-lg-3 mb-4">
                   <div class="card h-100 shadow-sm text-center border-primary">
-                    <div class="card-header bg-primary text-white">
-                      <h5 class="card-title mb-0" style="color: white;">12 Januari 2026</h5>
+                    <div class="card-header bg-primary text-white py-2">
+                      <h5 class="card-title mb-0" style="color: white; font-size: 1.1rem;">12 Januari 2026</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body py-3">
                       <i class="fas fa-comment-dots mb-3" style="font-size: 2.5rem; color: #0d6efd;"></i>
-                      <h6 class="card-subtitle">COC Themabijeenkomst</h6>
-                      <p class="card-text mt-2">
-                        ‘De visie medisch specialist 2035’ verzorgd door de FMS. (Ook voor overige geïnteresseerden
-                        toegankelijk)
+                      <h6 class="card-subtitle font-weight-bold">COC Themabijeenkomst</h6>
+                      <p class="card-text mt-2 small text-muted">
+                        ‘De visie medisch specialist 2035’ verzorgd door de FMS.
                       </p>
                     </div>
                   </div>
@@ -1203,14 +1066,14 @@
 
                 <div class="col-md-6 col-lg-3 mb-4">
                   <div class="card h-100 shadow-sm text-center border-success">
-                    <div class="card-header bg-success text-white">
-                      <h5 class="card-title mb-0" style="color: white;">14 Januari 2026</h5>
+                    <div class="card-header bg-success text-white py-2">
+                      <h5 class="card-title mb-0" style="color: white; font-size: 1.1rem;">14 Januari 2026</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body py-3">
                       <i class="fas fa-users mb-3" style="font-size: 2.5rem; color: #198754;"></i>
-                      <h6 class="card-subtitle">DOO XXL</h6>
-                      <p class="card-text mt-2">
-                        ‘Samenwerken in het heetst van de strijd’ door twee oud-commando’s van Kamp van Koningsbrugge.
+                      <h6 class="card-subtitle font-weight-bold">DOO XXL</h6>
+                      <p class="card-text mt-2 small text-muted">
+                        ‘Samenwerken in het heetst van de strijd’ door Kamp van Koningsbrugge oud-commando’s.
                       </p>
                     </div>
                   </div>
@@ -1218,14 +1081,14 @@
 
                 <div class="col-md-6 col-lg-3 mb-4">
                   <div class="card h-100 shadow-sm text-center border-info">
-                    <div class="card-header bg-info text-white">
-                      <h5 class="card-title mb-0" style="color: white;">22 Juni 2026</h5>
+                    <div class="card-header bg-info text-white py-2">
+                      <h5 class="card-title mb-0" style="color: white; font-size: 1.1rem;">22 Juni 2026</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body py-3">
                       <i class="fas fa-user-graduate mb-3" style="font-size: 2.5rem; color: #0dcaf0;"></i>
-                      <h6 class="card-subtitle">Teach the Co</h6>
-                      <p class="card-text mt-2">
-                        Didactische basiscursus voor arts-assistenten die coassistenten begeleiden tijdens coschappen.
+                      <h6 class="card-subtitle font-weight-bold">Teach the Co</h6>
+                      <p class="card-text mt-2 small text-muted">
+                        Didactische basiscursus voor arts-assistenten die coassistenten begeleiden.
                       </p>
                     </div>
                   </div>
@@ -1233,13 +1096,13 @@
 
                 <div class="col-md-6 col-lg-3 mb-4">
                   <div class="card h-100 shadow-sm text-center border-danger">
-                    <div class="card-header bg-danger text-white">
-                      <h5 class="card-title mb-0" style="color: white;">28 Oktober 2026</h5>
+                    <div class="card-header bg-danger text-white py-2">
+                      <h5 class="card-title mb-0" style="color: white; font-size: 1.1rem;">28 Oktober 2026</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body py-3">
                       <i class="fas fa-chalkboard-teacher mb-3" style="font-size: 2.5rem; color: #dc3545;"></i>
-                      <h6 class="card-subtitle">Teach the Teacher</h6>
-                      <p class="card-text mt-2">
+                      <h6 class="card-subtitle font-weight-bold">Teach the Teacher</h6>
+                      <p class="card-text mt-2 small text-muted">
                         Basiscursus teach the teacher gepland voor startende supervisoren.
                       </p>
                     </div>
@@ -1247,89 +1110,17 @@
                 </div>
               </div>
 
-              <!-- Priorities Cards -->
-              <div class="card shadow-sm mb-4">
-                <div class="card-body">
-                  <h4 class="card-title mb-4">Prioriteiten en focusgebieden 2026</h4>
-
-                  <div class="row">
-                    <div class="col-md-4 mb-4">
-                      <div class="card bg-light h-100">
-                        <div class="card-body">
-                          <div class="d-flex align-items-center mb-3">
-                            <div class="p-3 rounded-circle bg-primary text-white mr-3">
-
-                            </div>
-                            <h5 class="card-title mb-0 ml-3">Evaluatie & Visitatie</h5>
-                          </div>
-                          <p class="card-text">
-                            Ondersteuning van opleidingen bij diverse (regionale) evaluatiebezoeken en het
-                            evaluatiebezoek van de instelling vanuit de toezichthoudende rol van de COC.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                      <div class="card bg-light h-100">
-                        <div class="card-body">
-                          <div class="d-flex align-items-center mb-3">
-                            <div class="p-3 rounded-circle bg-success text-white mr-3">
-
-                            </div>
-                            <h5 class="card-title mb-0 ml-3">Meerjarenbeleid</h5>
-                          </div>
-                          <p class="card-text">
-                            Presentatie en verdere uitwerking van het strategische meerjarenbeleidsplan met daarin de
-                            nieuwe speerpunten.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                      <div class="card bg-light h-100">
-                        <div class="card-body">
-                          <div class="d-flex align-items-center mb-3">
-                            <div class="p-3 rounded-circle bg-info text-white mr-3">
-
-                            </div>
-                            <h5 class="card-title mb-0 ml-3">Didactische scholing</h5>
-                          </div>
-                          <p class="card-text">
-                            Versterken van de didactische nascholing via themabijeenkomsten, de Teach the Co cursus,
-                            Teach the Teacher en het grootschalige DOO XXL event.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Quote/Closing -->
-              <div class="card bg-light shadow-sm mb-4">
-                <div class="card-body text-center py-4">
-                  <blockquote class="blockquote">
-                    <p>"Met de presentatie van het nieuwe meerjarenbeleidsplan en het versterken van de didactische
-                      nascholing via Teach the Co en DOO XXL, bouwt de COC in 2026 verder aan een uitstekend
-                      opleidingsklimaat."</p>
-                  </blockquote>
-                  <p class="text-muted">- COC ETZ</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
 
       </div>
     </div>
   </div>
+</div>
+</div>
 
 
   <p style="padding-top: 60px;"><br><br><br><br><br><br><br><br><br><br>© Copyright 2025 ETZ - Gemaakt met ❤ door <a
       href="https://www.edease.nl" target="_blanc">EDease</a></p>
+</div>
 </div>
 
 

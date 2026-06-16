@@ -17,6 +17,20 @@ export class SiteComponent implements OnInit {
 
   @ViewChild('pwdmodal', {static: false}) pwdmodalRef: TemplateRef < any > ;
 
+  isLightboxOpen = false;
+  lightboxImgSrc = '';
+  lightboxImgAlt = '';
+
+  openLightbox(src: string, alt: string) {
+    this.lightboxImgSrc = src;
+    this.lightboxImgAlt = alt;
+    this.isLightboxOpen = true;
+  }
+
+  closeLightbox() {
+    this.isLightboxOpen = false;
+  }
+
   yearSet(yearSelected: number) {
    
     this.activeYear = yearSelected;
